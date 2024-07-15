@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="animation.css">
+  <title>Blague-Generateur</title>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to the joke generator</h1>
+  <div class="error">
+    <span style="color: red;">
+      
+    </span>
+  </div>
+  <form action="/post" method="post">
+    <div class="form-control">
+      <label for="name">Name:</label>
+      <input type="text" name="username">
+    </div>
+    <input type="submit" id="submit" value="Generate">
+  </form>
+
+  <div class="blag-display tracking-in-contract-bck-top">
+    <p class="blag">
+      
+    </p>
+  </div>
+  </div>
+
+  <script>
+    var input = document.getElementById('submit')
+  input.addEventListener('click',()=>{
+    input.classList.add("btn-green");
+  });
+    // Désactiver le bouton de soumission après la première soumission
+document.querySelector('form').addEventListener('submit', function() {
+    var submitButton = document.querySelector('form input[type="submit"]');
+    submitButton.disabled = true;
+});
+  
+  </script>
+</body>
+</html>
