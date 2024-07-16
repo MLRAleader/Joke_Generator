@@ -1,14 +1,5 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="animation.css">
-  <title>Blague-Generateur</title>
-</head>
-<body>
+<%- include('partials/header') %>
   <div class="container">
     <h1>Welcome to the joke generator</h1>
   <div class="error">
@@ -23,23 +14,33 @@
     </div>
     <input type="submit" id="submit" value="Generate">
   </form>
-  <div class="blag-display tracking-in-contract-bck-top">
+  <div class="" id="jokeDisplayer">
     <div class="error">
       <span style="color: red;">
         <%= locals.e %>
       </span>
     </div>
-    <p class="blag">
+    <p id="joke">
       <%= locals.joke  %>
     </p>
   </div>
   </div>
 
   <script>
-    var input = document.getElementById('submit')
-  input.addEventListener('click',()=>{
-    input.classList.add("btn-green");
+    //Change submit btn color
+    var input = document.getElementById('submit');
+    input.addEventListener('click',()=>{
+    input.classList.add("btn-change-color");
   });
+
+  //Aply style when there a joke to display
+  const joke = document.getElementById('joke');
+  if(joke.textContent.trim()!==''){
+    document.getElementById('jokeDisplayer').classList.add("display");
+  }else{
+    document.getElementById('jokeDisplayer').classList.remove("display");
+  }
+
 
   //Disable submit button after first submission
   document.querySelector('form').addEventListener('submit', function() {
@@ -47,5 +48,4 @@
     submitButton.disabled = true;
   });
   </script>
-</body>
-</html>
+<%- include('partials/footer') %>

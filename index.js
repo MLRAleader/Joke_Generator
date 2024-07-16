@@ -21,7 +21,7 @@ app.post("/post", async (req, res) => {
   const username = req.body.username;
  try {
   if (username=="") {
-    const error = "Merci d'entrer un nom valide!";
+    const error = "Oups,please enter a valid name!";
     res.render("index", { error: error });
   } else if (typeof username === 'string' && regexNom.test(username)) {
     const response = await axios.get("https://v2.jokeapi.dev/joke/Any");
@@ -29,7 +29,7 @@ app.post("/post", async (req, res) => {
     res.render("index", { joke: joke });
   }
  } catch (e) {
-  res.render("index", {e:"Erreur de récupération."})
+  res.render("index", {e:"Oups, recovery error!"})
  }
 });
 
