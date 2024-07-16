@@ -23,12 +23,9 @@ app.post("/post", async (req, res) => {
   if (username=="") {
     const error = "Merci d'entrer un nom valide!";
     res.render("index", { error: error });
-    console.log(error);
   } else if (typeof username === 'string' && regexNom.test(username)) {
     const response = await axios.get("https://v2.jokeapi.dev/joke/Any");
     const joke = response.data.setup;
-    console.log(joke);
-    console.log(`${username} est une chaîne de caractère.`);
     res.render("index", { joke: joke });
   }
  } catch (e) {

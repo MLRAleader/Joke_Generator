@@ -24,8 +24,13 @@
     <input type="submit" id="submit" value="Generate">
   </form>
   <div class="blag-display tracking-in-contract-bck-top">
+    <div class="error">
+      <span style="color: red;">
+        <%= locals.e %>
+      </span>
+    </div>
     <p class="blag">
-      <%= locals.e  %>
+      <%= locals.joke  %>
     </p>
   </div>
   </div>
