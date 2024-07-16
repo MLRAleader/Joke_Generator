@@ -1,6 +1,6 @@
 import express from "express";
 import bodyParser from "body-parser";
-import { Axios } from "axios";
+import axios from "axios";
 
 
 const app = express();
@@ -24,11 +24,15 @@ app.post("/post", async (req, res) => {
     const error = "Merci d'entrer un nom valide!";
     res.render("index", { error: error });
     console.log(error);
-  }else if (typeof username === 'string'  &&  regexNom.test(username) ) {
+  } else if (typeof username === 'string' && regexNom.test(username)) {
+    const response = await axios.get("https://v2.jokeapi.dev/joke/Any");
+    const joke = response.data.setup;
+    console.log(joke);
     console.log(`${username} est une chaîne de caractère.`);
+    res.render("index", { joke: joke });
   }
- } catch (error) {
-  res.render("index", {error:"Erreur de récupération."})
+ } catch (e) {
+  res.render("index", {e:"Erreur de récupération."})
  }
 });
 
