@@ -7,6 +7,13 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="animation.css">
   <title>Blague-Generateur</title>
+  <script>
+    // Désactiver le bouton de soumission après la première soumission
+    document.querySelector('form').addEventListener('submit', function() {
+    var submitButton = document.querySelector('form input[type="submit"]');
+    submitButton.disabled = true;
+  });
+  </script>
 </head>
 <body>
   <div class="container">
@@ -36,12 +43,6 @@
   input.addEventListener('click',()=>{
     input.classList.add("btn-green");
   });
-    // Désactiver le bouton de soumission après la première soumission
-document.querySelector('form').addEventListener('submit', function() {
-    var submitButton = document.querySelector('form input[type="submit"]');
-    submitButton.disabled = true;
-});
-  
   </script>
 </body>
 </html>
