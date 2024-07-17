@@ -7,7 +7,7 @@
       <%= locals.error %>
     </span>
   </div>
-  <form action="/post" method="post">
+  <form id="form" action="/post" method="post" onsubmit="return clearDataAfterSubmtion();">
     <div class="form-control">
       <label for="name">Name:</label>
       <input type="text" name="username">
@@ -41,11 +41,5 @@
     document.getElementById('jokeDisplayer').classList.remove("display");
   }
 
-
-  //Disable submit button after first submission
-  document.querySelector('form').addEventListener('submit', function() {
-    var submitButton = document.querySelector('form input[type="submit"]');
-    submitButton.disabled = true;
-  });
   </script>
 <%- include('partials/footer') %>
